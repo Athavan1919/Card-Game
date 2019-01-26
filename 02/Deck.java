@@ -98,6 +98,85 @@ public class Deck {
         }
     }
 
+     public void shuffle() {
+            Collections.shuffle(cards);
+    }
+    
+    /*public Deck deal(int n) {
+            int length = cards.size();
+            for (int i=length-1; i>n; i--) {
+                Card deck = cards.get(i);
+                Deck newDeck = newDeck.add(deck);
+                cards.remove(i);
+            }
+            return newDeck;
+            
+    }*/
+    
+    public boolean contains(Card card) {
+        
+            if (cards.contains(card)){
+                return true;
+            }
+            return false;
+            
+    }
+    
+    public boolean containsAll(Deck other) {
+            if (cards.contains(other)) {
+                return true;
+            }
+            return false;
+    }
+    
+    public boolean isKind() {
+            int length = this.size();
+        
+            if(length>=2) {
+                for(int x=0; x<length-1; x++) {
+                        Card cardOne = this.get(x);
+                        Card cardTwo = this.get(x+1);
+                        
+                        if(cardOne.getRank() == cardTwo.getRank()) {
+                            return true;
+                        }
+                        
+                        else {
+                            return false;
+                        }
+ 
+                }
+  
+            }
+            return false;
+        
+    }
+    
+    public boolean isSeq() {
+            int length = this.size();
+            
+            if (length>=3) {
+                
+                for (int i=0;i<length-1;i++) {
+                    Card cardOne = this.get(i);
+                    Card cardTwo = this.get(i+1);
+                    if (cardOne.getRank() == cardTwo.getRank()+1) {
+                        if(cardOne.getSuit() == cardTwo.getSuit()) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                        
+                    }
+                    return false;
+                }
+                
+            }
+            return false;
+        
+    }
+
     public void sortBySuit(){
         int length = this.size();
         //Bubble sort adapted from lab 1(300056269)
