@@ -33,7 +33,15 @@ public class Deck {
 
 
     public Deck(int range) {
-        cards = new ArrayList<Card>((4*range));
+        cards = new ArrayList<Card>();
+        Card newCard; 
+
+        for (int i = 0; i < 4; i++){
+        	for (int x = 0; x < range; x ++){
+        		newCard = new Card(i,x);
+        		cards.add(newCard);
+        	}
+        }
 
         // Complete the implementation of this constructor
 
@@ -102,16 +110,14 @@ public class Deck {
             Collections.shuffle(cards);
     }
     
-    /*public Deck deal(int n) {
-            int length = cards.size();
-            for (int i=length-1; i>n; i--) {
-                Card deck = cards.get(i);
-                Deck newDeck = newDeck.add(deck);
-                cards.remove(i);
+    public Deck deal(int n) {
+    		Deck newDeck = new Deck();
+            for (int i= 0; i < n; i++) {
+            	newDeck.add(this.removeLast());
             }
             return newDeck;
             
-    }*/
+    }
     
     public boolean contains(Card card) {
         
@@ -123,10 +129,16 @@ public class Deck {
     }
     
     public boolean containsAll(Deck other) {
-            if (cards.contains(other)) {
-                return true;
-            }
-            return false;
+    	for (int i = 0; i < other.size(); i++){
+    		//only used semi colon because condition stops when false, otherwise it keeps going and function will return true 
+    		if (this.contains(other.get(i))){
+    			;
+    		}else{
+    			return false; 
+    		}
+    	}
+    	
+    	return true;
     }
     
     public boolean isKind() {

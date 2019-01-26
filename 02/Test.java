@@ -144,11 +144,15 @@ public class Test {
         }
 
         assertEquals(hand.isKind(), false);
+
+        //Here
         assertEquals(hand.isSeq(), true);
+      
 
         hand.add(new Card(Card.HEART, 12));
 
         assertEquals(hand.isSeq(), false);
+
 
         deck = new Deck(13);
 
@@ -156,6 +160,7 @@ public class Test {
 
         assertEquals(deck.contains(new Card(Card.SPADE, 2)), true);
 
+        //here 
         assertEquals(deck.containsAll(hand), true);
 
         assertEquals(hand.containsAll(deck), false);
