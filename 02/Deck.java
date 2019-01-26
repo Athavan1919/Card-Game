@@ -97,14 +97,16 @@ public class Deck {
     }
 
     public void removeAll(Deck other){
-        int lengthThis = this.size();
+        int lengthOther = other.size();
         Card inCard; 
-        for (int i = 0; i < lengthThis; i++){
-            inCard = (this.cards).get(i);
-            if ((other.cards).contains(inCard)){
+        for (int i = 0; i < lengthOther; i++){
+            inCard = other.get(i);
+            if (this.contains(inCard)){
                 this.remove(inCard);
             }
         }
+
+
     }
 
      public void shuffle() {
