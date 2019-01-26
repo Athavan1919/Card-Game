@@ -77,6 +77,26 @@ public class Deck {
         return (firstCard);
     }
 
+    public boolean remove(Card card){
+        int position = cards.indexOf(card);
+        //-1 because if card is not found, indexOf returns -1
+        if (position > -1){
+            cards.remove(position);
+            return true ;
+        } 
+        return false; 
+    }
+
+    public void removeAll(Deck other){
+        int lengthThis = this.size();
+        Card inCard; 
+        for (int i = 0; i < lengthThis; i++){
+            inCard = (this.cards).get(i);
+            if ((other.cards).contains(inCard)){
+                this.remove(inCard);
+            }
+        }
+    }
         
 
 }
