@@ -169,10 +169,11 @@ public class Deck {
             
             if (length>=3) {
                 
-                for (int i=0;i<length-1;i++) {
+                for (int i=0;i<length-2;i++) {
                     Card cardOne = this.get(i);
                     Card cardTwo = this.get(i+1);
-                    if (cardOne.getRank() == cardTwo.getRank()+1) {
+                    Card cardThree = this.get(i+2);
+                    if (cardOne.getRank() == cardTwo.getRank()+1 && cardOne.getRank() == cardThree.getRank()+2) {
                         if(cardOne.getSuit() == cardTwo.getSuit()) {
                             return true;
                         }
