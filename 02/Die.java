@@ -5,8 +5,9 @@ public class Die {
 	int dieRoll;
 	public static final int MAXVALUE = 6;
 	
-	Die(){		
-		dieRoll = 1;
+	Die(){
+		Random randNum = new Random();
+		dieRoll = randNum.nextInt(6)+1;		
 	}
 	
 	public int getValue() {
@@ -21,7 +22,7 @@ public class Die {
 	}
 	
 	public String toString() {
-		  return getClass().getSimpleName() + " {value:" + dieRoll + "}";
+		  return "Die" + " {value:" + dieRoll + "}";
 	}
 	
 	public static void main(String[] args) {
