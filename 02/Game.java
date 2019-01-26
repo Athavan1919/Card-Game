@@ -13,7 +13,7 @@ public class Game{
 	public int play(){
 		playerDeck = new Deck();
 		mainDeck.shuffle();
-		
+
 		Deck cardsAdded = mainDeck.deal(7);
 		playerDeck.addAll(cardsAdded);
 
@@ -55,6 +55,7 @@ public class Game{
 					Deck discardCards = Utils.readCards("Enter your cards:");
 					
 					if (discardCards.isKind() || discardCards.isSeq()){
+						playerDeck.removeAll(discardCards);
 						System.out.println("Removed, would you like to discard more?");
 						userInput = Utils.readYesOrNo("Yes or No?");
 						playerDeck.print();
