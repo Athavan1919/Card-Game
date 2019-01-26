@@ -67,7 +67,8 @@ public class Deck {
     }
 
     public void addAll(Deck other){
-        for (int i = 0; i < other.size(); i++){
+        int length = other.size();
+        for (int i = 0; i < length; i++){
             this.add(other.removeLast());
         } 
 
@@ -196,7 +197,7 @@ public class Deck {
             for (int x = 0; x < length - i -1; x++){
                 Card cardOne = this.get(x);
                 Card cardTwo = this.get(x+1);
-                if (cardOne.getSuit() < cardTwo.getSuit()){
+                if (cardOne.getSuit() > cardTwo.getSuit()){
                     this.cards.set(x,cardTwo);
                     this.cards.set(x+1,cardOne);
                 }
@@ -211,7 +212,7 @@ public class Deck {
             for (int x = 0; x < length - i -1; x++){
                 Card cardOne = this.get(x);
                 Card cardTwo = this.get(x+1);
-                if (cardOne.getRank() < cardTwo.getRank()){
+                if (cardOne.getRank() > cardTwo.getRank()){
                     this.cards.set(x,cardTwo);
                     this.cards.set(x+1,cardOne);
                 }
@@ -220,16 +221,16 @@ public class Deck {
     }
 
     public void print(){
-        System.out.println("Sorted by Suit: ");
+        System.out.print("Sorted by Suit: ");
         this.sortBySuit();
         for (int i = 0; i < this.size(); i++){
-            System.out.print(this.get(i));
+            System.out.print(this.get(i) + " ");
         }
-        
-        System.out.println("Sorted by Rank: ");
+        System.out.println(" ");
+        System.out.print("Sorted by Rank: ");
         this.sortByRank();
         for (int x = 0; x < this.size(); x++){
-            System.out.print(this.get(x));
+            System.out.print(this.get(x)+ " ");
         }
 
     }
