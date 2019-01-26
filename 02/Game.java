@@ -54,12 +54,19 @@ public class Game{
 					System.out.println(" ");
 					Deck discardCards = Utils.readCards("Enter your cards:");
 					
-					if (discardCards.isKind() || discardCards.isSeq()){
+					if (discardCards.isKind()){
 						playerDeck.removeAll(discardCards);
 						System.out.println("Removed, would you like to discard more?");
 						userInput = Utils.readYesOrNo("Yes or No?");
 						playerDeck.print();
-					} else{
+
+					} else if (discardCards.isSeq()){
+						playerDeck.removeAll(discardCards);
+						System.out.println("Removed, would you like to discard more?");
+						userInput = Utils.readYesOrNo("Yes or No?");
+						playerDeck.print();
+
+					} else {
 						System.out.println("Not a sequence or meld, would you like to discard more?");
 						userInput = Utils.readYesOrNo("Yes or No?");
 						playerDeck.print();
