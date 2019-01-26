@@ -33,11 +33,48 @@ public class Deck {
 
 
     public Deck(int range) {
+        cards = new ArrayList<Card>((4*range));
 
         // Complete the implementation of this constructor
 
     }
+    public int size(){
+        return cards.size();
+    }
+   
+    public boolean hasCards(){        
+        if (cards.size() >= 1){
+            return true;
+        }
+        return false;
 
-    // Add all the necessary methods here
+    }
+
+    public Card get(int pos){
+        return cards.get(pos);
+    }
+
+    public void add(Card card){
+        cards.add(card);
+    }
+
+    public void addAll(Deck other){
+        for (int i = 0; i < other.size(); i++){
+            this.add(other.removeLast());
+        } 
+
+    }
+    public Card removeLast(){
+        int length = cards.size();
+        cards.remove(length-1);
+        return (cards.get(length-1));
+    }
+
+    public Card removeFirst(){
+        cards.remove(0);
+        return 
+    }
+
+        
 
 }
