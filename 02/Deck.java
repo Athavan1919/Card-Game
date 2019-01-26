@@ -165,16 +165,18 @@ public class Deck {
         
     }
     
-    public boolean isSeq() {
+  public boolean isSeq() {
             int length = this.size();
             
             if (length>=3) {
                 
-                for (int i=0;i<length-1;i++) {
+                for (int i=0;i<length-2;i++) {
                     Card cardOne = this.get(i);
                     Card cardTwo = this.get(i+1);
-                    if (cardOne.getRank() == cardTwo.getRank()+1) {
-                        if(cardOne.getSuit() == cardTwo.getSuit()) {
+                    Card cardThree = this.get(i+2);
+                    
+                    if (cardOne.getRank() == cardTwo.getRank()-1 && cardOne.getRank() == cardThree.getRank()-2) {
+                        if(cardOne.getSuit() == cardTwo.getSuit() && cardOne.getSuit() == cardThree.getSuit()) {
                             return true;
                         }
                         else {
@@ -183,6 +185,7 @@ public class Deck {
                         
                     }
                     return false;
+                    
                 }
                 
             }
