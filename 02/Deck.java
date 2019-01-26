@@ -66,13 +66,15 @@ public class Deck {
     }
     public Card removeLast(){
         int length = cards.size();
+        Card lastCard = cards.get(length-1);
         cards.remove(length-1);
-        return (cards.get(length-1));
+        return (lastCard);
     }
 
     public Card removeFirst(){
+        Card firstCard = cards.get(0);
         cards.remove(0);
-        return 
+        return (firstCard);
     }
 
         
