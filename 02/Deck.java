@@ -97,6 +97,59 @@ public class Deck {
             }
         }
     }
+
+    public void sortBySuit(){
+        int length = this.size();
+        //Bubble sort adapted from lab 1(300056269)
+        for (int i = 0; i < length - 1; i++){
+            for (int x = 0; x < length - i -1; x++){
+                Card cardOne = this.get(x);
+                Card cardTwo = this.get(x+1);
+                if (cardOne.getSuit() < cardTwo.getSuit()){
+                    this.cards.set(x,cardTwo);
+                    this.cards.set(x+1,cardOne);
+                }
+            }
+        }
+    }
+
+    public void sortByRank(){
+      int length = this.size();
+        //Bubble sort adapted from lab 1(300056269)
+        for (int i = 0; i < length - 1; i++){
+            for (int x = 0; x < length - i -1; x++){
+                Card cardOne = this.get(x);
+                Card cardTwo = this.get(x+1);
+                if (cardOne.getRank() < cardTwo.getRank()){
+                    this.cards.set(x,cardTwo);
+                    this.cards.set(x+1,cardOne);
+                }
+            }
+        }   
+    }
+
+    public void print(){
+        System.out.println("Sorted by Suit: ");
+        this.sortBySuit();
+        for (int i = 0; i < this.size(); i++){
+            System.out.print(this.get(i));
+        }
+        
+        System.out.println("Sorted by Rank: ");
+        this.sortByRank();
+        for (int x = 0; x < this.size(); x++){
+            System.out.print(this.get(x));
+        }
+
+    }
+    public String toString(){
+        String allCards = (cards.get(0)).toString(); 
+        for (int i = 1; i < cards.size(); i ++){
+           allCards = allCards + " " + (cards.get(i)).toString();
+
+        }
+        return allCards; 
+    }
         
 
 }

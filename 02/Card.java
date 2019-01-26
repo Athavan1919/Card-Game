@@ -30,7 +30,7 @@ public class Card {
 		
 		Card other;
 		other = (Card) object;
-		return other.suitVal == suitVal && other.rankVal == rankVal;
+		return other.suitVal == this.suitVal && other.rankVal == this.rankVal;
 		
 		}
 	
