@@ -105,8 +105,6 @@ public class Deck {
                 this.remove(inCard);
             }
         }
-
-
     }
 
      public void shuffle() {
@@ -146,7 +144,7 @@ public class Deck {
     
     public boolean isKind() {
             int length = this.size();
-        
+        //Loop exits right away because if first 2 are good then it just exits, make sure it iterates over every single element
             if(length>=2) {
                 for(int x=0; x<length-1; x++) {
                         Card cardOne = this.get(x);
@@ -169,7 +167,7 @@ public class Deck {
     
   public boolean isSeq() {
             int length = this.size();
-            
+            //Loop exits right away because if first 2 are good then it just exits, make sure it iterates over every single element
             if (length>=3) {
                 
                 for (int i=0;i<length-2;i++) {

@@ -32,7 +32,7 @@ public class Run {
         while (play) {
             game = new Game(ranks);
             game.play();
-            play = Utils.readYesOrNo("Do you want to again? ");
+            play = Utils.readYesOrNo("Do you want to play again? ");
         }
 
     }

@@ -76,7 +76,8 @@ public class Game{
 			}
 			rounds ++; 
 		} 
-		System.out.println(rounds + " were played.");
+		System.out.println(" ")
+		System.out.println(rounds + " rounds were played.");
 		return rounds; 
 	}
 }
