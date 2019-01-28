@@ -10,7 +10,7 @@ public class Game{
 	}
 
 	//Make sure to improve later for user  input
-	public int play(){
+	public void play(){
 		playerDeck = new Deck();
 		mainDeck.shuffle();
 
@@ -32,12 +32,26 @@ public class Game{
 			
 			if (roll == 1){
 				System.out.println("you got a 1, please discard a card: ");
-				Card discard = Utils.readCard();
-				playerDeck.remove(discard);
-				System.out.println(" ");
+				
+				boolean condition = true; 
+
+				while (condition){
+					Card discard = Utils.readCard();
+				
+					if (playerDeck.contains(discard)){
+						playerDeck.remove(discard);
+						System.out.println(" ");
+						condition = false;
+				
+					} else{
+						System.out.println("Not a card in your hand. Please enter a valid card.");
+						System.out.println(" ");
+					}
+				}
+			
 
 			}else{
-				System.out.println("you got a " + roll +" discard a meld:");
+				System.out.println("you got a " + roll +", discard a meld:");
 				System.out.println(" ");
 				
 				if (mainDeck.size() > roll){
@@ -50,34 +64,42 @@ public class Game{
 				//used Utils.readNumber to make sure integer is valid 
 				boolean userInput = true;
 				playerDeck.print();
+				
 				while (userInput){
 					System.out.println(" ");
 					Deck discardCards = Utils.readCards("Enter your cards:");
 					
-					if (discardCards.isKind()){
-						playerDeck.removeAll(discardCards);
-						System.out.println("Removed, would you like to discard more?");
-						userInput = Utils.readYesOrNo("Yes or No?");
-						playerDeck.print();
+					if (playerDeck.containsAll(discardCards)){
+						
+						if (discardCards.isKind()){
+							playerDeck.removeAll(discardCards);
+							System.out.println("Removed, would you like to discard more?");
+							userInput = Utils.readYesOrNo("Yes or No?");
+							playerDeck.print();
 
-					} else if (discardCards.isSeq()){
-						playerDeck.removeAll(discardCards);
-						System.out.println("Removed, would you like to discard more?");
-						userInput = Utils.readYesOrNo("Yes or No?");
-						playerDeck.print();
+						} else if (discardCards.isSeq()){
+							playerDeck.removeAll(discardCards);
+							System.out.println("Removed, would you like to discard more?");
+							userInput = Utils.readYesOrNo("Yes or No?");
+							playerDeck.print();
 
-					} else {
-						System.out.println("Not a sequence or meld, would you like to discard more?");
-						userInput = Utils.readYesOrNo("Yes or No?");
-						playerDeck.print();
+						} else {
+							System.out.println("Not a sequence or meld, would you like to discard more?");
+							userInput = Utils.readYesOrNo("Yes or No?");
+							playerDeck.print();
+						}
+
+					} else{
+						System.out.println("Some of the cards are not in your hand, enter again.");
+
 					}
+
 				}
 
 			}
 			rounds ++; 
 		} 
-		System.out.println(" ")
+		System.out.println(" ");
 		System.out.println(rounds + " rounds were played.");
-		return rounds; 
 	}
 }

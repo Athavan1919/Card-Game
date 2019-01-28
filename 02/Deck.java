@@ -150,15 +150,11 @@ public class Deck {
                         Card cardOne = this.get(x);
                         Card cardTwo = this.get(x+1);
                         
-                        if(cardOne.getRank() == cardTwo.getRank()) {
-                            return true;
-                        }
-                        
-                        else {
+                        if(cardOne.getRank() != cardTwo.getRank()) {
                             return false;
                         }
- 
                 }
+                return true;
   
             }
             return false;
@@ -166,6 +162,7 @@ public class Deck {
     }
     
   public boolean isSeq() {
+    /*
             int length = this.size();
             //Loop exits right away because if first 2 are good then it just exits, make sure it iterates over every single element
             if (length>=3) {
@@ -176,13 +173,10 @@ public class Deck {
                     Card cardThree = this.get(i+2);
                     
                     if (cardOne.getRank() == cardTwo.getRank()-1 && cardOne.getRank() == cardThree.getRank()-2) {
-                        if(cardOne.getSuit() == cardTwo.getSuit() && cardOne.getSuit() == cardThree.getSuit()) {
-                            return true;
-                        }
-                        else {
+                        if(cardOne.getSuit() != cardTwo.getSuit() && cardOne.getSuit() != cardThree.getSuit()) {
                             return false;
                         }
-                        
+                        return true; 
                     }
                     return false;
                     
@@ -191,6 +185,22 @@ public class Deck {
             }
             return false;
         
+    }
+
+    */
+
+        if (cards.size() >= 3){
+            for(int i =1; i<cards.size();i++){
+                if (cards.get(i).getSuit()!= cards.get(i-1).getSuit()){
+                    return false;
+                }
+                if(cards.get(i).getRank() <= cards.get(i-1).getRank()){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     public void sortBySuit(){
