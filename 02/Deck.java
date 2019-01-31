@@ -107,10 +107,12 @@ public class Deck {
         }
     }
 
+     //Shuffles the cards in the deck
      public void shuffle() {
             Collections.shuffle(cards);
     }
     
+    //Removes cards from old deck and inserts into new deck
     public Deck deal(int n) {
             Deck newDeck = new Deck();
             for (int i= 0; i < n; i++) {
@@ -120,6 +122,7 @@ public class Deck {
             
     }
     
+    //Returns true if specified card is in the hand
     public boolean contains(Card card) {
         
             if (cards.contains(card)){
@@ -129,6 +132,7 @@ public class Deck {
             
     }
     
+    //Returns true if the deck contains the same hand as the specified deck
     public boolean containsAll(Deck other) {
         for (int i = 0; i < other.size(); i++){
             //only used semi colon because condition stops when false, otherwise it keeps going and function will return true 
@@ -142,6 +146,7 @@ public class Deck {
         return true;
     }
     
+    //Check if the cards in the hand is a discardable kind
     public boolean isKind() {
             int length = this.size();
         //Loop exits right away because if first 2 are good then it just exits, make sure it iterates over every single element
@@ -160,7 +165,8 @@ public class Deck {
             return false;
         
     }
-    
+  
+  //Checks if the cards in the hand is a sequential kind  
   public boolean isSeq() {
 
       int length = this.size();
