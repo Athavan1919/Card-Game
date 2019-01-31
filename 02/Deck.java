@@ -69,7 +69,7 @@ public class Deck {
     public void addAll(Deck other){
         int length = other.size();
         for (int i = 0; i < length; i++){
-            this.add(other.removeLast());
+            this.add(other.removeFirst());
         } 
 
     }
