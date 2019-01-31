@@ -42,7 +42,7 @@ public class Die {
 	public int roll() {
 		
 		Random randNum = new Random();
-		dieRoll = randNum.nextInt(5)+1;	
+		dieRoll = randNum.nextInt(6)+1;	
 		return dieRoll;
 	}
 	
