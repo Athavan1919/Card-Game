@@ -1,15 +1,27 @@
 public class Game{
 
+	//Declaring private instance variables to be used in play method 
 	private Deck mainDeck;
 	private Die die; 
 	private Deck playerDeck; 
+
+	/**
+    * Constructor for GAme class that creates new starting deck and creates new die/rolls it
+    *@param ranks the number of ranks to be played with from 3-99
+    */
 	
 	public Game (int ranks){
 		mainDeck = new Deck(ranks);
 		die = new Die();
 	}
 
-	//Make sure to improve later for user  input
+	/**
+    * A method that simulates the game of rummy 
+    * Uses objects of classes Deck, Card, and Die 
+    * Counts the number of rounds to see how long it takes to finish 
+    */
+
+
 	public void play(){
 		playerDeck = new Deck();
 		mainDeck.shuffle();
@@ -21,7 +33,7 @@ public class Game{
 		int roll = 0;
 		playerDeck.print();
 		System.out.println(" ");
-		System.out.print("You roll the die and ");
+		System.out.print("You roll the die... ");
 		
 		while (playerDeck.hasCards()){
 			roll = die.roll();

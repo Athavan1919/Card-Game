@@ -10,22 +10,35 @@ import java.util.Random;
 
 public class Die {
 	
-	int dieRoll;
+	private int dieRoll;
 	//Declaring constant 
 	public static final int MAXVALUE = 6;
 	
-	//Constructor initalizes the value of the die with a random number within 1 to 6
+	
+	/**
+    * Constructor for die class that generates a random number btween 1 and 6
+    */
+
 	Die(){
 		Random randNum = new Random();
 		dieRoll = randNum.nextInt(6)+1;		
 	}
 	
-	//Returns the value of the dice roll
+	/**
+    * this is a getter method
+    * A method to return value of die roll
+    * @return int this returns the number rolled
+    */
+
 	public int getValue() {
 		return dieRoll;
 	}
 	
-	//Assigns a new value to the dice 
+	/**
+    * A method to roll a die between number and 6
+    * @return int this returns the number rolled
+    */
+
 	public int roll() {
 		
 		Random randNum = new Random();
@@ -33,7 +46,10 @@ public class Die {
 		return dieRoll;
 	}
 	
-	//Returns a string representation of the dice roll
+	/**
+    * A method to return string representation of a roll
+    * @return String this returns string representation of a roll
+    */
 	public String toString() {
 		  return "Die" + " {value:" + dieRoll + "}";
 	}
