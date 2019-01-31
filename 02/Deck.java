@@ -37,10 +37,10 @@ public class Deck {
         Card newCard; 
 
         for (int i = 0; i < 4; i++){
-        	for (int x = 0; x < range; x ++){
-        		newCard = new Card(i,x);
-        		cards.add(newCard);
-        	}
+            for (int x = 0; x < range; x ++){
+                newCard = new Card(i,x);
+                cards.add(newCard);
+            }
         }
 
         // Complete the implementation of this constructor
@@ -112,9 +112,9 @@ public class Deck {
     }
     
     public Deck deal(int n) {
-    		Deck newDeck = new Deck();
+            Deck newDeck = new Deck();
             for (int i= 0; i < n; i++) {
-            	newDeck.add(this.removeLast());
+                newDeck.add(this.removeLast());
             }
             return newDeck;
             
@@ -130,16 +130,16 @@ public class Deck {
     }
     
     public boolean containsAll(Deck other) {
-    	for (int i = 0; i < other.size(); i++){
-    		//only used semi colon because condition stops when false, otherwise it keeps going and function will return true 
-    		if (this.contains(other.get(i))){
-    			;
-    		}else{
-    			return false; 
-    		}
-    	}
-    	
-    	return true;
+        for (int i = 0; i < other.size(); i++){
+            //only used semi colon because condition stops when false, otherwise it keeps going and function will return true 
+            if (this.contains(other.get(i))){
+                ;
+            }else{
+                return false; 
+            }
+        }
+        
+        return true;
     }
     
     public boolean isKind() {
@@ -162,47 +162,28 @@ public class Deck {
     }
     
   public boolean isSeq() {
-    /*
-            int length = this.size();
-            //Loop exits right away because if first 2 are good then it just exits, make sure it iterates over every single element
-            if (length>=3) {
-                
-                for (int i=0;i<length-2;i++) {
-                    Card cardOne = this.get(i);
-                    Card cardTwo = this.get(i+1);
-                    Card cardThree = this.get(i+2);
-                    
-                    if (cardOne.getRank() == cardTwo.getRank()-1 && cardOne.getRank() == cardThree.getRank()-2) {
-                        if(cardOne.getSuit() != cardTwo.getSuit() && cardOne.getSuit() != cardThree.getSuit()) {
-                            return false;
-                        }
-                        return true; 
-                    }
-                    return false;
-                    
-                }
-                
-            }
-            return false;
-        
+
+      int length = this.size();
+
+    
+      if (length >= 3){
+          //Loop exits if the cards are not of the same suit and the rank is not sequential
+          for(int i =1; i<cards.size();i++){
+              Card cardOne = this.get(i);
+              Card cardTwo = this.get(i-1);
+            
+              if (cardOne.getSuit()!= cardTwo.getSuit()){
+                  return false;
+              }
+              if(cardOne.getRank() <= cardTwo.getRank()){
+                  return false;
+              }
+          }
+          return true;
+      }
+      return false;
     }
-
-    */
-
-        if (cards.size() >= 3){
-            for(int i =1; i<cards.size();i++){
-                if (cards.get(i).getSuit()!= cards.get(i-1).getSuit()){
-                    return false;
-                }
-                if(cards.get(i).getRank() <= cards.get(i-1).getRank()){
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
+  
     public void sortBySuit(){
         int length = this.size();
         //Bubble sort adapted from lab 1(300056269)
