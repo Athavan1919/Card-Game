@@ -185,6 +185,7 @@ public class Deck {
     }
   
     public void sortBySuit(){
+        this.sortByRank();
         int length = this.size();
         //Bubble sort adapted from lab 1(300056269)
         for (int i = 0; i < length - 1; i++){

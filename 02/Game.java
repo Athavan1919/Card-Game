@@ -31,15 +31,19 @@ public class Game{
 			}
 			
 			if (roll == 1){
-				System.out.println("you got a 1, please discard a card: ");
+				System.out.println("");
+				System.out.println("You got a 1, please discard a card: ");
 				
 				boolean condition = true; 
+				playerDeck.print();
+				System.out.println("");
 
 				while (condition){
 					Card discard = Utils.readCard();
 				
 					if (playerDeck.contains(discard)){
 						playerDeck.remove(discard);
+						System.out.println("Removed");
 						System.out.println(" ");
 						condition = false;
 				
@@ -51,7 +55,7 @@ public class Game{
 			
 
 			}else{
-				System.out.println("you got a " + roll +", discard a meld:");
+				System.out.println("You got a " + roll +", discard a meld:");
 				System.out.println(" ");
 				
 				if (mainDeck.size() > roll){
@@ -87,10 +91,13 @@ public class Game{
 							System.out.println("Not a sequence or meld, would you like to discard more?");
 							userInput = Utils.readYesOrNo("Yes or No?");
 							playerDeck.print();
+							System.out.println("");
 						}
 
 					} else{
-						System.out.println("Some of the cards are not in your hand, enter again.");
+						System.out.println("The selected card(s) are not in your hand.");
+						System.out.println("Would you like to discard more?");
+						userInput = Utils.readYesOrNo("Yes or No?");
 
 					}
 
