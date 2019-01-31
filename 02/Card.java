@@ -1,27 +1,41 @@
+// Author: Athavan Jeevakumar
+// Student number: 300060442
+// Author: Aman Riat
+// Student number: 300056269
+// Course: ITI 1121-C
+// Assignment: 1
+// Question: 2
+	  
+
 public class Card {
 	
+	//Declaring instance variables 
 	private int suitVal;
 	private int rankVal;
 	
+	//Declaring constants 
 	public static final int DIAMOND = 0;
 	public static final int CLUB = 1;
 	public static final int HEART = 2;
 	public static final int SPADE = 3;
 
-
+	//Constructor for card class taking inital suit and rank values
 	Card(int suit, int rank){	
 		suitVal = suit;
 		rankVal = rank;	
 	}
 	
+	//Returns the suit value of the card
 	public int getSuit() {
 		return suitVal;
 	}
 	
+	//Returns the rank value of the card
 	public int getRank() {
 		return rankVal;
 	}
 	
+	//Checks if the Card objects are the same  
 	public boolean equals(Object object) {
 		
 		if (!(object instanceof Card)) {
@@ -34,19 +48,9 @@ public class Card {
 		
 		}
 	
-	
+	//Returns a string representation of the card 
 	public String toString() {
 		  return "{" + suitVal + "," + rankVal + "}";
-	}
-	
-	public static void main(String[] args) {
-		 Card a, b, c;
-		 a = new Card (2,7);
-		 b = new Card (2,7) ;
-		 c = new Card (0,9) ;
-		 System.out.println(a) ;
-		 System.out.println(a.equals(b));
-		 System.out.println(a.equals(c)) ;			
 	}
 
 }
